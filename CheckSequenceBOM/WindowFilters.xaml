@@ -1,0 +1,44 @@
+﻿<Window x:Class="CheckSequenceBOM.WindowFilters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckSequenceBOM"
+        mc:Ignorable="d"
+        Title="Select necessary filters for sequences" Height="450" Width="800"
+        Activated="Window_Activated">
+    <Border Padding="10">
+        <Canvas x:Name="MainContent">
+            <Border CornerRadius="6"
+                        BorderBrush="Gray"
+                        Background="LightGray"
+                        BorderThickness="2"
+                        Padding="8"
+                        Canvas.Top="10" Canvas.Left="10" Height="138" Width="193">
+                <StackPanel>
+                    <TextBlock Text="Select status to show:" Padding="5" />
+                    <CheckBox x:Name="CheckboxStatus10" Content="Ready for production (10/11)" HorizontalAlignment="Left" Margin="0 0 0 0" Unchecked="CheckboxList_OneUnchecked"/>
+                    <CheckBox x:Name="CheckboxStatus20" Content="In production (20)" HorizontalAlignment="Left" Unchecked="CheckboxList_OneUnchecked"/>
+                    <CheckBox x:Name="CheckboxStatus21" Content="Not ready for prod. (21)" HorizontalAlignment="Left" Unchecked="CheckboxList_OneUnchecked"/>
+                    <CheckBox x:Name="CheckboxStatus19" Content="BOM error (18/19)" HorizontalAlignment="Left" Unchecked="CheckboxList_OneUnchecked"/>
+                    <CheckBox x:Name="CheckboxStatusOther" Content="Other status (?)" HorizontalAlignment="Left" Unchecked="CheckboxList_OneUnchecked"/>
+                    <CheckBox x:Name="CheckboxStatusAll" Content="Select all" HorizontalAlignment="Left" Checked="CheckboxStatusAll_Checked" Unchecked="CheckboxStatusAll_Unchecked"/>
+                    
+                </StackPanel>
+            </Border>
+            
+            <Border CornerRadius="6"
+                        BorderBrush="Gray"
+                        Background="LightGray"
+                        BorderThickness="2"
+                        Padding="8"
+                        Canvas.Top="10" Canvas.Left="208" Height="379" Width="193">
+                <StackPanel>
+                    <TextBlock Text="Select racks to display:" Padding="5" />
+                    <CheckBox x:Name="CheckboxAllRacks" Content="Select all" HorizontalAlignment="Left" Margin="0 0 0 0" Checked="CheckboxAllRacks_Checked" Unchecked="CheckboxAllRacks_Unchecked"/>
+                    <ListView x:Name="RackList" ItemsSource="{Binding}"  Loaded="RackList_Loaded" Height="318"/>
+                </StackPanel>
+            </Border>
+        </Canvas>
+    </Border>
+</Window>
